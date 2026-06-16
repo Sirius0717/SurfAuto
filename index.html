@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Changzhou Surf Automobile Sales Co., Ltd. — Your Trusted Partner for Chinese Auto Export.">
+<title>Surf Auto — Glass Nebula — Chinese Auto Export</title>
+<style>
+/* ============================================
+   SURF AUTO — Official Website
+   Design: Glass Nebula Dark, High-End B2B
+   ============================================ */
+
+:root {
+  --bg: #05070a;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-glow: inset 0 1px 1px rgba(255, 255, 255, 0.1), inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.4);
+  --accent-dim: rgba(56, 189, 248, 0.08);
+  --accent-border: rgba(56, 189, 248, 0.2);
+  --cta: #f43f5e;
+  --cta-hover: #e11d48;
+  --radius: 16px;
+  --max-w: 1200px;
+  --nav-h: 72px;
+  --white: #ffffff;
+  --nav-bg: rgba(5, 7, 10, 0.6);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e2e8f0;
+  --bg-elevated: rgba(255, 255, 255, 0.03);
+  --bg-card: rgba(255, 255, 255, 0.03);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+
+body {
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@keyframes meshMove1 { to { transform: translate(10%, 10%) rotate(15deg); } }
+@keyframes meshMove2 { to { transform: translate(-10%, -5%) rotate(-15deg); } }
+
+/* Nebula layers */
+body::before {
+  content: '';
+  position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+  z-index: -1; pointer-events: none;
+  background: radial-gradient(circle at 20% 80%, rgba(40, 0, 100, 0.4) 0%, transparent 40%),
+              radial-gradient(circle at 80% 20%, rgba(0, 40, 120, 0.4) 0%, transparent 40%);
+  animation: meshMove1 25s ease-in-out infinite alternate;
+}
+body::after {
+  content: '';
+  position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+  z-index: -1; pointer-events: none;
+  background: radial-gradient(circle at 70% 70%, rgba(100, 0, 150, 0.3) 0%, transparent 40%),
+              radial-gradient(circle at 30% 30%, rgba(0, 100, 200, 0.3) 0%, transparent 40%);
+  animation: meshMove2 30s ease-in-out infinite alternate;
+}
+
+/* Accessibility: skip to content */
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--accent); color: #080c12;
+  padding: 12px 20px; z-index: 10000; font-weight: 600;
+  font-size: 14px; text-decoration: none;
+}
+.skip-link:focus { top: 8px; }
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s;
+}
+.nav.scrolled { border-bottom-color: var(--accent-border); }
+
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 32px;
+  height: 100%; display: flex; align-items: center; justify-content: space-between;
+}
+
+.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-brand .mark {
+  width: 8px; height: 28px; background: var(--accent);
+  box-shadow: 0 0 8px rgba(37,99,235,0.3);
+}
+.nav-logo { height: 34px; width: 34px; flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(37,99,235,0.4)); }
+
+.nav-brand .name { font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; }
+
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: 14px; font-weight: 600; letter-spacing: 0.06em;
+  text-transform: uppercase; transition: color 0.25s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+.lang-switch { display: flex; border: 1px solid var(--border); border-radius: 2px; margin-left: 12px; }
+.lang-switch button {
+  border: none; background: transparent; color: var(--text-muted);
+  padding: 6px 14px; font-size: 13px; font-weight: 500; cursor: pointer;
+  transition: all 0.2s; font-family: inherit; letter-spacing: 0.04em;
+}
+.lang-switch button.active { background: var(--accent); color: #080c12; }
+.lang-switch button:hover:not(.active) { color: var(--white); }
+
+.mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 26px; cursor: pointer; }
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: rgba(8,12,18,0.98); backdrop-filter: blur(20px);
+    flex-direction: column; padding: 28px; gap: 24px;
+    transform: translateY(-100%); opacity: 0; pointer-events: none;
+    transition: all 0.3s; border-bottom: 1px solid var(--border);
+  }
+  .nav-links a {
+    font-size: 17px; padding: 12px 0; display: block;
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .mobile-toggle { display: block; font-size: 26px; padding: 8px; }
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; padding: 120px 32px 80px;
+  background: #0d1420 url('images/hero-bg.jpg') center 10%/cover no-repeat;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(8,12,18,0.4) 0%, rgba(8,12,18,0.55) 50%, rgba(8,12,18,0.75) 100%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 780px; }
+
+
+.hero-label {
+  font-size: 14px; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 64px); font-weight: 400;
+  line-height: 1.25; color: var(--white); margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+.hero h1 strong { font-weight: 800; color: var(--accent, var(--white)); }
+
+/* Hero stat bar */
+.hero-stats {
+  display: flex; justify-content: center; gap: 40px; margin-bottom: 40px;
+  padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.hero-stat { text-align: center; }
+.hero-stat .val { font-size: 32px; font-weight: 400; color: var(--white); line-height: 1; }
+.hero-stat .lbl { font-size: 11px; color: var(--text-muted); letter-spacing: 0.08em; font-weight: 500; text-transform: uppercase; margin-top: 6px; }
+
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 480px) {
+  .hero-stats { gap: 20px; }
+  .hero-stat .val { font-size: 26px; }
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px; font-size: 15px; font-weight: 600;
+  text-decoration: none; cursor: pointer; border: none;
+  font-family: inherit; letter-spacing: 0.05em;
+  transition: all 0.3s; text-transform: uppercase;
+}
+.btn-primary { background: var(--cta); color: #fff; }
+.btn-primary:hover { background: var(--cta-hover); }
+.btn-outline {
+  background: transparent; color: var(--white);
+  border: 1px solid var(--accent-border);
+}
+.btn-outline:hover { background: var(--accent-dim); border-color: var(--white); }
+
+/* ============================================
+   SECTIONS — Shared
+   ============================================ */
+
+.section { position: relative; z-index: 1; padding: 100px 32px; }
+
+.section-alt { background: var(--bg-elevated); }
+/* Content-heavy sections — tighter padding */
+#vehicles.section, #parts.section { padding: 80px 32px; }
+
+.section-inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+
+.section-label {
+  display: block; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 42px); font-weight: 400; text-align: left;
+  color: var(--white); margin-bottom: 64px; letter-spacing: 0.02em;
+}
+
+.section-line {
+  width: 32px; height: 1px; background: var(--accent);
+  margin-bottom: 56px;
+  box-shadow: 0 0 12px 2px rgba(37,99,235,0.3);
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.about-text { color: var(--text-muted); font-size: 17px; line-height: 1.9; }
+.about-text p + p { margin-top: 24px; }
+.about-text .highlight { color: var(--text); font-weight: 500; }
+
+.about-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+.metric {
+  background: var(--bg-card); padding: 36px 28px; text-align: center;
+  transition: background 0.3s;
+}
+.metric:hover { background: #151e2a; }
+.metric .value { font-size: 44px; font-weight: 400; color: var(--white); line-height: 1; margin-bottom: 10px; text-shadow: 0 0 20px rgba(163,163,163,0.4); }
+.metric .label { font-size: 14px; color: var(--text-dim); letter-spacing: 0.06em; font-weight: 500; text-transform: uppercase; }
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ============================================
+   VEHICLES — Minimalist Glass Gallery
+   ============================================ */
+.vehicles-section {
+  height: 300vh;
+  position: relative;
+}
+.vehicles-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.vehicles-sticky-wrapper .section-inner {
+  margin: 0 auto;
+  max-width: var(--max-w);
+}
+.vehicles-track-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+.vehicles-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 32px;
+  padding: 0 10vw;
+  will-change: transform;
+  background: transparent;
+}
+.vehicles-track .vehicle-card {
+  flex: 0 0 450px;
+  height: 500px;
+  max-width: 80vw;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--glass-border);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vehicle-img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.vehicle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vehicle-card:hover {
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
+  transform: translateY(-8px);
+}
+.vehicle-card:hover .vehicle-img img {
+  transform: scale(1.08);
+}
+.vehicle-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px 28px;
+  background: rgba(5, 7, 10, 0.5);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 2;
+}
+.overlay-brand {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.overlay-model {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 6px 0 0 0;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.overlay-inquire {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  padding: 10px 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.05);
+  opacity: 0;
+  transform: translateX(15px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vehicle-card:hover .overlay-inquire {
+  opacity: 1;
+  transform: translateX(0);
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+}
+@media (max-width: 768px) {
+  .vehicles-track .vehicle-card {
+    flex: 0 0 85vw;
+    height: 450px;
+  }
+  .overlay-model { font-size: 26px; }
+}
+
+/* ============================================
+   PARTS
+   ============================================ */
+
+.parts-brand { margin-bottom: 64px; }
+.parts-brand:last-child { margin-bottom: 0; }
+
+.parts-brand-title {
+  font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 24px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.parts-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+  background: var(--border);
+}
+.part-card {
+  background: var(--bg-card); transition: background 0.3s;
+  display: flex; flex-direction: column;
+}
+.part-card:hover { background: #151e2a; box-shadow: 0 0 0 1px rgba(163,163,163,0.2), 0 8px 32px rgba(163,163,163,0.08); }
+
+.part-img {
+  width: 100%; aspect-ratio: 1 / 1; background: #f0ede8;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; border-bottom: 1px solid var(--border);
+}
+.part-img img { width: 100%; height: 100%; object-fit: contain; padding: 16px; }
+
+.part-body { padding: 20px 16px; text-align: center; }
+.part-body h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.part-body .part-ref { font-size: 13px; color: var(--text-dim); margin-bottom: 14px; }
+.part-body .link-arrow { font-size: 11px; }
+
+@media (max-width: 1024px) { .parts-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .parts-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ============================================
+   WHY US — Bento Grid Override
+   ============================================ */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, minmax(220px, auto));
+  gap: 20px;
+  background: transparent;
+}
+.advantage-card {
+  background: var(--bg-card);
+  padding: 44px 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.4s ease;
+}
+.advantage-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  background: #252525;
+}
+.advantage-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.advantage-card:nth-child(2) { grid-column: span 2; grid-row: span 1; }
+.advantage-card:nth-child(3) { grid-column: span 1; grid-row: span 1; }
+.advantage-card:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+@media (max-width: 768px) {
+  .advantages-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .advantage-card:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+}
+
+
+/* ============================================
+   HERO DATA PANEL
+   ============================================ */
+.stat-value-wrapper {
+  display: flex; align-items: center; justify-content: center; gap: 4px; position: relative;
+}
+.stat-plus { font-size: 24px; font-weight: 600; color: var(--accent); line-height: 1; margin-top: -8px; }
+.stat-trend {
+  width: 20px; height: 20px; color: var(--cta); margin-left: 8px; margin-top: -10px;
+  animation: trendBounce 2s ease-in-out infinite;
+}
+@keyframes trendBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+
+
+/* ============================================
+   CUSTOM CURSOR (Micro-interaction)
+   ============================================ */
+.custom-cursor {
+  position: fixed; top: 0; left: 0;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, border-color 0.4s;
+  display: flex; align-items: center; justify-content: center;
+  mix-blend-mode: difference;
+}
+.custom-cursor.hover {
+  width: 80px; height: 80px;
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+.custom-cursor.hover::after {
+  content: 'VIEW';
+  font-size: 10px; font-weight: 800; letter-spacing: 0.15em;
+  color: #fff; mix-blend-mode: normal;
+}
+@media (hover: none) {
+  body, a, button, input, textarea { cursor: auto !important; }
+  .custom-cursor { display: none !important; }
+}
+
+
+/* ============================================
+   GLASSMORPHISM UI OVERRIDE
+   ============================================ */
+.nav {
+  background: rgba(5, 7, 10, 0.6) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-glow) !important;
+}
+.nav-brand .name, .nav-links a { color: var(--text-main) !important; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent) !important; }
+.vehicle-card, .part-card, .advantage-card, .metric {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-glow), 0 8px 32px rgba(0,0,0,0.4) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vehicle-card:hover, .part-card:hover, .advantage-card:hover {
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  box-shadow: var(--glass-glow), 0 0 30px rgba(56, 189, 248, 0.15) !important;
+  transform: translateY(-8px);
+}
+.hero h1, .section-title, .vehicle-body h3, .advantage-card h3, .part-body h4, .metric .value {
+  color: #ffffff !important;
+}
+.hero-label, .section-label { color: var(--accent) !important; }
+.hero-stat .lbl, .about-text, .vehicle-body .desc, .advantage-card p, .part-body .part-ref, .region-info p {
+  color: var(--text-muted) !important;
+}
+.link-arrow { color: var(--accent) !important; }
+.link-arrow:hover { color: #fff !important; }
+.btn-primary {
+  background: var(--cta) !important;
+  color: #fff !important;
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.4) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+.btn-primary:hover {
+  background: var(--cta-hover) !important;
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.6) !important;
+}
+.btn-outline {
+  color: #fff !important;
+  border: 1px solid var(--glass-border) !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(10px);
+}
+.btn-outline:hover {
+  border-color: var(--accent) !important;
+  background: rgba(56, 189, 248, 0.1) !important;
+}
+.floating-wa {
+  background: var(--cta) !important;
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.5) !important;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.form-group input, .form-group textarea {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: #fff !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+
+
+/* ============================================
+   BRAND LOGOS IN WHY US (3x3 Grid)
+   ============================================ */
+.brand-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.logo-item {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+.logo-item img {
+  max-width: 80%;
+  max-height: 70%;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: grayscale(100%) brightness(1.8);
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+.logo-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+.logo-item:hover img {
+  filter: grayscale(0%) brightness(2);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+
+
+
+/* ============================================
+   MARKETS
+   ============================================ */
+.markets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.region-list { display: flex; flex-direction: column; gap: 32px; padding-right: 16px; }
+@media (max-width: 768px) {
+  .markets-grid { grid-template-columns: 1fr; gap: 48px; }
+  .region-list { padding-right: 0; }
+}
+
+
+/* ============================================
+   CONTACT — Restored Styles
+   ============================================ */
+
+.region-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding-bottom: 28px; border-bottom: 1px solid var(--border);
+}
+.region-item:last-child { border-bottom: none; padding-bottom: 0; }
+.region-marker {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); margin-top: 8px; flex-shrink: 0;
+}
+.markets-visual {
+  aspect-ratio: 4 / 3;
+  background: var(--bg-card);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.markets-visual svg { width: 100%; height: 100%; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.contact-form h3, .contact-info-block h3 {
+  font-size: 18px; font-weight: 600; color: var(--white);
+  margin-bottom: 24px; letter-spacing: 0.02em;
+}
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.form-group { margin-bottom: 16px; }
+.form-group input, .form-group textarea {
+  width: 100%; padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-border);
+  color: #fff; font-family: inherit; font-size: 15px;
+  outline: none; transition: all 0.3s;
+  border-radius: var(--radius);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group input::placeholder, .form-group textarea::placeholder {
+  color: var(--text-dim);
+}
+.btn-send { width: 100%; justify-content: center; margin-top: 4px; }
+.contact-item {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+}
+.contact-icon {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+}
+.contact-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+.contact-item a, .contact-item span {
+  color: var(--text); text-decoration: none; font-size: 15px; transition: color 0.2s;
+}
+.contact-item a:hover { color: var(--accent); }
+.contact-note {
+  margin-top: 24px; font-size: 13px; color: var(--text-dim);
+  padding-top: 20px; border-top: 1px solid var(--border);
+}
+@media (max-width: 768px) {
+  
+.region-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding-bottom: 28px; border-bottom: 1px solid var(--border);
+}
+.region-item:last-child { border-bottom: none; padding-bottom: 0; }
+.region-marker {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); margin-top: 8px; flex-shrink: 0;
+}
+.markets-visual {
+  aspect-ratio: 4 / 3;
+  background: var(--bg-card);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.markets-visual svg { width: 100%; height: 100%; }
+
+.contact-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ============================================
+   FOOTER — Restored Styles
+   ============================================ */
+.footer {
+  text-align: center; padding: 36px 24px;
+  border-top: 1px solid var(--border); font-size: 13px;
+  color: var(--text-dim); letter-spacing: 0.04em;
+}
+
+/* ============================================
+   FLOATING WHATSAPP — Complete Fix
+   ============================================ */
+.floating-wa {
+  position: fixed; bottom: 32px; right: 32px; z-index: 999;
+  width: 56px !important;
+  height: 56px !important;
+  background: var(--cta);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(244, 63, 94, 0.4);
+  padding: 0 !important;
+}
+.floating-wa:hover {
+  background: var(--cta-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(244, 63, 94, 0.5);
+}
+.floating-wa svg {
+  width: 26px !important;
+  height: 26px !important;
+  fill: #fff !important;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   WHY US — Card Fix
+   ============================================ */
+.advantage-card {
+  background: var(--bg-card) !important;
+  padding: 44px 32px !important;
+}
+
+</style>
+
+
+<link rel="icon" type="image/png" href="images/logo-icon.png">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://surfauto.com/">
+<meta property="og:title" content="Surf Auto — Chinese Auto Export">
+<meta property="og:description" content="Changzhou Surf Automobile Sales Co., Ltd. — Your Trusted Partner for Chinese Auto Export.">
+<meta property="og:image" content="https://surfauto.com/images/og-preview.jpg">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Surf Auto — Chinese Auto Export">
+<meta property="twitter:description" content="Changzhou Surf Automobile Sales Co., Ltd. — Your Trusted Partner for Chinese Auto Export.">
+<meta property="twitter:image" content="https://surfauto.com/images/og-preview.jpg">
+</head>
+<body>
+
+<a href="#about" class="skip-link">Skip to content</a>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img src="images/logo-icon.png" alt="Surf Auto" class="nav-logo">
+      <span class="name">Surf Auto</span>
+    </a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#vehicles" data-i18n="nav_vehicles">Vehicles</a></li>
+      <li><a href="#parts" data-i18n="nav_parts">Parts</a></li>
+      <li><a href="#why-us" data-i18n="nav_why">Why Us</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      <li>
+        <div class="lang-switch">
+          <button id="langEN" class="active" onclick="switchLang('en')" lang="en" aria-label="English" title="English">EN</button>
+          <button id="langZH" onclick="switchLang('zh')" lang="zh" aria-label="中文" title="中文">中</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <p class="hero-label">Surf Automobile</p>
+    <h1 data-i18n="hero_title">Your <strong>Trusted Partner</strong> for Chinese Auto Export</h1>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-value-wrapper">
+          <div class="val" data-target="10">0</div><span class="stat-plus">+</span>
+          <svg class="stat-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+        </div>
+        <div class="lbl" data-i18n="hero_stat1">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-value-wrapper">
+          <div class="val" data-target="15">0</div><span class="stat-plus">+</span>
+          <svg class="stat-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+        </div>
+        <div class="lbl" data-i18n="hero_stat2">Countries Served</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-value-wrapper">
+          <div class="val" data-target="3000">0</div><span class="stat-plus">+</span>
+          <svg class="stat-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
+        </div>
+        <div class="lbl" data-i18n="hero_stat3">Parts in Catalog</div>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <a href="https://wa.me/8617826640404" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span data-i18n="hero_whatsapp">WhatsApp</span>
+      </a>
+      <a href="#vehicles" class="btn btn-outline" data-i18n="hero_explore">Explore Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="section-inner">
+    <h2 class="section-title" data-i18n="about_title">About Surf Auto</h2>
+    <div class="section-line"></div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p><span class="highlight">Changzhou Surf Automobile Sales Co., Ltd.</span> <span data-i18n="about_p1">is a professional Chinese auto export company dedicated to connecting global buyers with China's finest vehicles and auto parts. With years of hands-on experience, our team has earned a reputation for reliability, precision, and integrity in every transaction.</span></p>
+        <p data-i18n="about_p2">We deliver complete one-stop export solutions — vehicle sourcing, competitive pricing, customs clearance, international logistics, and final delivery. Our clients across South America, Central Asia, and the Middle East trust us as their long-term partner for Chinese automotive products.</p>
+      </div>
+
+      <div class="about-metrics reveal-children">
+        <div class="metric">
+          <div class="value">10+</div>
+          <div class="label" data-i18n="stat_years">Years Experience</div>
+        </div>
+        <div class="metric">
+          <div class="value">15+</div>
+          <div class="label" data-i18n="stat_countries">Countries Served</div>
+        </div>
+        <div class="metric">
+          <div class="value">3,000+</div>
+          <div class="label" data-i18n="stat_parts">Parts in Catalog</div>
+        </div>
+        <div class="metric">
+          <div class="value">24h</div>
+          <div class="label" data-i18n="stat_response">Response Time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- VEHICLES -->
+<section class="vehicles-section" id="vehicles">
+  <div class="vehicles-sticky-wrapper">
+    <div class="section-inner">
+      <span class="section-label" data-i18n="vehicles_label">Inventory</span>
+      <h2 class="section-title" data-i18n="vehicles_title" style="text-align:left">Vehicles We Export</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="vehicles-track-container">
+      <div class="vehicles-track reveal-children" id="vehiclesGrid">
+
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/toyota-bz3x.jpg" alt="TOYOTA BZ3X">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">TOYOTA</span>
+                <h3 class="overlay-model">BZ3X</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20Toyota%20BZ3X" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/toyota-rav4.jpg" alt="TOYOTA RAV4">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">TOYOTA</span>
+                <h3 class="overlay-model">RAV4</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20Toyota%20RAV4" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/jietu-t2.jpg" alt="JETOUR T2">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">JETOUR</span>
+                <h3 class="overlay-model">T2</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20JETOUR%20T2" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/leopard-5.jpg" alt="FANGCHENGBAO Leopard 5">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">FANGCHENGBAO</span>
+                <h3 class="overlay-model">Leopard 5</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20Fangchengbao%20Leopard%205" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/byd-song.jpg" alt="BYD Song">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">BYD</span>
+                <h3 class="overlay-model">Song</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20BYD%20Song" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/byd-sealion05ev.jpg" alt="BYD Sealion 05 EV">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">BYD</span>
+                <h3 class="overlay-model">Sealion 05 EV</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20BYD%20Sealion%2005%20EV" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/deepal-g318.jpg" alt="DEEPAL G318">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">DEEPAL</span>
+                <h3 class="overlay-model">G318</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20Deepal%20G318" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/avatr-12.jpg" alt="AVATR 12">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">AVATR</span>
+                <h3 class="overlay-model">12</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20Avatr%2012" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="vehicle-card">
+          <div class="vehicle-img">
+            <img loading="lazy" src="images/vehicles/xiaomi-yu7.jpg" alt="XIAOMI YU7">
+            <div class="vehicle-overlay">
+              <div class="overlay-text">
+                <span class="overlay-brand">XIAOMI</span>
+                <h3 class="overlay-model">YU7</h3>
+              </div>
+              <a href="https://wa.me/8617826640404?text=Hi,%20I%20am%20interested%20in%20Xiaomi%20YU7" class="overlay-inquire" target="_blank" rel="noopener noreferrer">Inquire &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTS -->
+<section class="section" id="parts">
+  <div class="section-inner">
+    <span class="section-label" data-i18n="parts_label">Components</span>
+    <h2 class="section-title" data-i18n="parts_title">Auto Parts Supply</h2>
+    <div class="section-line"></div>
+
+    <div class="parts-brand reveal-children">
+      <h3 class="parts-brand-title">BYD</h3>
+      <div class="parts-grid">
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BYD/BYD_006.jpg" alt="BYD Qin front bumper assembly" loading="lazy"></div>
+          <div class="part-body">
+            <h4>Qin Front Bumper</h4>
+            <p class="part-ref">BYD New Qin / Qin EV</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20BYD%20Qin%20Front%20Bumper" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BYD/BYD_009.jpg" alt="BYD Qin tail light assembly" loading="lazy"></div>
+          <div class="part-body">
+            <h4>Qin Tail Light</h4>
+            <p class="part-ref">BYD New Qin / Qin EV</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20BYD%20Qin%20Tail%20Light" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BYD/BYD_019.jpg" alt="BYD Song Plus front grille" loading="lazy"></div>
+          <div class="part-body">
+            <h4>Song Plus Front Grille</h4>
+            <p class="part-ref">BYD Song Plus DM-i / EV</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20BYD%20Song%20Plus%20Grille" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BYD/BYD_045.jpg" alt="BYD Han headlight assembly" loading="lazy"></div>
+          <div class="part-body">
+            <h4>Han Headlight</h4>
+            <p class="part-ref">BYD Han EV</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20BYD%20Han%20Headlight" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BYD/BYD_048.jpg" alt="BYD Yuan Plus tail light assembly" loading="lazy"></div>
+          <div class="part-body">
+            <h4>Yuan Plus Tail Light</h4>
+            <p class="part-ref">BYD Yuan Plus / Atto 3</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20BYD%20Yuan%20Plus%20Tail%20Light" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parts-brand reveal-children">
+      <h3 class="parts-brand-title">Mercedes-Benz</h3>
+      <div class="parts-grid">
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BENZ/BENZ_093.jpg" alt="Mercedes-Benz GLC W253 front bumper" loading="lazy"></div>
+          <div class="part-body">
+            <h4>GLC Front Bumper</h4>
+            <p class="part-ref">GLC W253 2016–2022</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20Mercedes%20GLC%20Front%20Bumper" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BENZ/BENZ_029.jpg" alt="Mercedes-Benz C-Class W203 W204 headlight" loading="lazy"></div>
+          <div class="part-body">
+            <h4>C-Class Headlight</h4>
+            <p class="part-ref">C-Class W203 / W204</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20Mercedes%20C-Class%20Headlight" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BENZ/BENZ_045.jpg" alt="Mercedes-Benz E-Class W211 W212 tail light" loading="lazy"></div>
+          <div class="part-body">
+            <h4>E-Class Tail Light</h4>
+            <p class="part-ref">E-Class W211 / W212</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20Mercedes%20E-Class%20Tail%20Light" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BENZ/BENZ_126.jpg" alt="Mercedes-Benz AMG front grille" loading="lazy"></div>
+          <div class="part-body">
+            <h4>AMG Grille</h4>
+            <p class="part-ref">Mercedes AMG Series</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20Mercedes%20AMG%20Grille" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+        <div class="part-card">
+          <div class="part-img"><img src="images/parts/BENZ/BENZ_086.jpg" alt="Mercedes-Benz multi-model mirror assembly" loading="lazy"></div>
+          <div class="part-body">
+            <h4>Mirror Assembly</h4>
+            <p class="part-ref">Multi-Model Compatible</p>
+            <a href="https://wa.me/8617826640404?text=Hi,%20interested%20in%20Mercedes%20Mirror%20Assembly" class="link-arrow" target="_blank" rel="noopener noreferrer" data-i18n="inquire">Inquire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="why-us">
+  <div class="section-inner">
+    <span class="section-label" data-i18n="why_label">Our Edge</span>
+    <h2 class="section-title" data-i18n="why_title">Why Choose Us</h2>
+
+    <div class="advantages-grid reveal-children">
+      <div class="advantage-card">
+        <h3 data-i18n="adv1_title">Wide Vehicle Selection</h3>
+        <p data-i18n="adv1_desc">Covering major Chinese brands with stable supply chain access. From economical models to premium EVs, we source exactly what your market demands.</p>
+        <div class="brand-logos-grid">
+          <div class="logo-item"><img src="images/brands/toyota-7.svg" alt="Toyota" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/byd-auto-logo-1.svg" alt="BYD" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/chery-3.svg" alt="Chery" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/volkswagen-9.svg" alt="Volkswagen" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/Li_Auto_Chinese_logo.svg" alt="Li Auto" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/Deepal_Logo_transparent.png" alt="Deepal" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/Avatr_Technology_logo.svg" alt="Avatr" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/Jetour_logo.svg" alt="Jetour" loading="lazy"></div>
+          <div class="logo-item"><img src="images/brands/Zeekr_logo.svg" alt="Zeekr" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="advantage-card">
+        <h3 data-i18n="adv2_title">End-to-End Export Service</h3>
+        <p data-i18n="adv2_desc">From sourcing and customs clearance to international shipping and delivery. We manage the entire process so you can focus on your business.</p>
+      </div>
+      <div class="advantage-card">
+        <h3 data-i18n="adv3_title">Fast Response</h3>
+        <p data-i18n="adv3_desc">Professional team responding within 24 hours. Competitive quotes, shipping estimates, and availability updates — without the wait.</p>
+      </div>
+      <div class="advantage-card">
+        <h3 data-i18n="adv4_title">Global Experience</h3>
+        <p data-i18n="adv4_desc">Serving dealers and importers across South America, Central Asia, and the Middle East. We understand international trade and local market nuances.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section class="section section-alt" id="markets">
+  <div class="section-inner">
+    <span class="section-label" data-i18n="markets_label">Global Reach</span>
+    <h2 class="section-title" data-i18n="markets_title">Markets We Serve</h2>
+
+    <div class="markets-grid">
+      <div class="markets-visual reveal">
+        <svg viewBox="0 0 500 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="globeGrad" cx="50%" cy="45%" r="50%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Globe base glow -->
+          <circle cx="250" cy="190" r="155" fill="url(#globeGrad)"/>
+
+          <!-- Globe outline rings -->
+          <circle cx="250" cy="190" r="155" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+          <circle cx="250" cy="190" r="140" stroke="rgba(255,255,255,0.045)" stroke-width="0.5" stroke-dasharray="2 6"/>
+
+          <!-- Latitude lines -->
+          <ellipse cx="250" cy="190" rx="155" ry="35" stroke="rgba(255,255,255,0.045)" stroke-width="0.5"/>
+          <ellipse cx="250" cy="190" rx="155" ry="75" stroke="rgba(255,255,255,0.045)" stroke-width="0.5"/>
+          <ellipse cx="250" cy="190" rx="155" ry="115" stroke="rgba(255,255,255,0.045)" stroke-width="0.5"/>
+
+          <!-- Longitude lines -->
+          <ellipse cx="250" cy="190" rx="40" ry="155" stroke="rgba(255,255,255,0.045)" stroke-width="0.5"/>
+          <ellipse cx="250" cy="190" rx="90" ry="155" stroke="rgba(255,255,255,0.045)" stroke-width="0.5"/>
+
+          <!-- China origin: pulsing rings -->
+          <circle class="pulse-ring" cx="250" cy="95" r="8" fill="none" stroke="#2563eb" stroke-width="1" opacity="0.5"/>
+          <circle class="pulse-ring delay1" cx="250" cy="95" r="8" fill="none" stroke="#2563eb" stroke-width="1" opacity="0.5"/>
+          <circle cx="250" cy="95" r="3.5" fill="#2563eb"/>
+
+          <!-- Region 1: Central Asia (NW of China, closest) -->
+          <path class="route" d="M242,92 Q220,90 203,100" stroke="#38bdf8" stroke-width="0.7" stroke-dasharray="3 4" opacity="0.6" fill="none"/>
+          <circle cx="198" cy="103" r="12" fill="none" stroke="#38bdf8" stroke-width="0.5" opacity="0.25"/>
+          <circle cx="198" cy="103" r="4.5" fill="#38bdf8" opacity="0.7"/>
+
+          <!-- Region 2: Middle East (SW of China, mid distance) -->
+          <path class="route" d="M244,102 Q210,135 178,162" stroke="#38bdf8" stroke-width="0.7" stroke-dasharray="3 4" opacity="0.6" fill="none"/>
+          <circle cx="173" cy="166" r="12" fill="none" stroke="#38bdf8" stroke-width="0.5" opacity="0.25"/>
+          <circle cx="173" cy="166" r="4.5" fill="#38bdf8" opacity="0.7"/>
+
+          <!-- Region 3: Africa (SW of China, furthest along this line) -->
+          <path class="route" d="M246,105 Q200,180 155,243" stroke="#38bdf8" stroke-width="0.7" stroke-dasharray="3 4" opacity="0.65" fill="none"/>
+          <circle cx="150" cy="248" r="13" fill="none" stroke="#38bdf8" stroke-width="0.5" opacity="0.25"/>
+          <circle cx="150" cy="248" r="4.5" fill="#38bdf8" opacity="0.7"/>
+
+          <!-- Region 4: South America (across Pacific, SE of China) -->
+          <path class="route" d="M258,100 Q330,160 366,243" stroke="#38bdf8" stroke-width="0.7" stroke-dasharray="3 4" opacity="0.65" fill="none"/>
+          <circle cx="370" cy="248" r="14" fill="none" stroke="#38bdf8" stroke-width="0.5" opacity="0.25"/>
+          <circle cx="370" cy="248" r="5" fill="#38bdf8" opacity="0.75"/>
+
+          <!-- Labels -->
+          <text x="194" y="86" fill="#38bdf8" font-size="9" font-family="Manrope,system-ui,sans-serif" letter-spacing="1.5" opacity="0.75" text-anchor="end">CENTRAL ASIA</text>
+          <text x="169" y="188" fill="#38bdf8" font-size="9" font-family="Manrope,system-ui,sans-serif" letter-spacing="1.5" opacity="0.75" text-anchor="end">MIDDLE EAST</text>
+          <text x="146" y="270" fill="#38bdf8" font-size="9" font-family="Manrope,system-ui,sans-serif" letter-spacing="1.5" opacity="0.75" text-anchor="end">AFRICA</text>
+          <text x="374" y="270" fill="#38bdf8" font-size="9" font-family="Manrope,system-ui,sans-serif" letter-spacing="1.5" opacity="0.75" text-anchor="start">SOUTH AMERICA</text>
+          <text x="250" y="78" fill="#8a8e94" font-size="8" font-family="Manrope,system-ui,sans-serif" letter-spacing="2" opacity="0.8" text-anchor="middle">CHINA</text>
+
+                              <style>
+            .pulse-ring {
+              transform-origin: 250px 95px;
+              animation: pulseRing 3s ease-out infinite;
+            }
+            .pulse-ring.delay1 { animation-delay: 1.5s; }
+            @keyframes pulseRing {
+              0%   { r: 6px; opacity: 0.6; }
+              70%  { r: 22px; opacity: 0; }
+              100% { r: 22px; opacity: 0; }
+            }
+            .route {
+              animation: dashFlow 6s linear infinite;
+            }
+            @keyframes dashFlow {
+              to { stroke-dashoffset: -28; }
+            }
+          </style>
+        
+        
+        </svg>
+      
+      
+      </div>
+      <div class="region-list reveal-children">
+        <div class="region-item">
+          <div class="region-marker"></div>
+          <div class="region-info">
+            <h3 data-i18n="region1_name">South America</h3>
+            <p data-i18n="region1_desc">Colombia, Brazil, Chile, Peru, Argentina — established logistics routes and reliable local partner networks across the continent.</p>
+          </div>
+        </div>
+        <div class="region-item">
+          <div class="region-marker"></div>
+          <div class="region-info">
+            <h3 data-i18n="region2_name">Central Asia</h3>
+            <p data-i18n="region2_desc">Kazakhstan, Uzbekistan, Kyrgyzstan — strategic overland routes via Khorgos with competitive transit times.</p>
+          </div>
+        </div>
+        <div class="region-item">
+          <div class="region-marker"></div>
+          <div class="region-info">
+            <h3 data-i18n="region3_name">Middle East</h3>
+            <p data-i18n="region3_desc">UAE, Saudi Arabia, Qatar, Kuwait — growing demand for Chinese EVs and hybrids with premium specifications.</p>
+          </div>
+        </div>
+
+        <div class="region-item">
+          <div class="region-marker"></div>
+          <div class="region-info">
+            <h3 data-i18n="region4_name">Africa</h3>
+            <p data-i18n="region4_desc">Nigeria, Ghana, South Africa, Kenya — fast-growing markets with rising demand for affordable Chinese vehicles and auto parts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <h2 class="section-title" data-i18n="contact_title" style="margin-bottom: 40px;">Contact Us</h2>
+
+        <div class="contact-grid reveal">
+      <div class="contact-form">
+        <h3 data-i18n="contact_form_title">Send Us a Message</h3>
+        <div class="form-group">
+          <label for="cfName" class="sr-only">Your Name</label>
+          <input type="text" id="cfName" placeholder="Your Name" data-i18n-placeholder="form_name">
+        </div>
+        <div class="form-group">
+          <label for="cfCountry" class="sr-only">Country</label>
+          <input type="text" id="cfCountry" placeholder="Country" data-i18n-placeholder="form_country">
+        </div>
+        <div class="form-group">
+          <label for="cfMsg" class="sr-only">Message</label>
+          <textarea id="cfMsg" rows="4" placeholder="Message / Inquiry" data-i18n-placeholder="form_msg"></textarea>
+        </div>
+        <button class="btn btn-primary btn-send" onclick="sendWhatsApp()" data-i18n="form_send">Send via WhatsApp</button>
+      </div>
+      <div class="contact-info-block">
+        <h3 data-i18n="contact_direct">Direct Contact</h3>
+        <div class="contact-item">
+          <span class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </span>
+          <a href="https://wa.me/8617826640404" target="_blank" rel="noopener noreferrer">+86 178 2664 0404</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </span>
+          <a href="mailto:pany8871@gmail.com">pany8871@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </span>
+          <span data-i18n="contact_address">West Building 1, No. 338 Heping Middle Road, Lanling Subdistrict, Tianning District, Changzhou, Jiangsu Province, China</span>
+        </div>
+        <p class="contact-note" data-i18n="contact_note">Reply within 24h · UTC+8</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 Surf Auto. <span data-i18n="footer_rights">All Rights Reserved.</span></p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/8617826640404" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- SCRIPTS -->
+<script>
+const i18n = {
+  en: {
+    nav_about: 'About', nav_vehicles: 'Vehicles', nav_parts: 'Parts', nav_why: 'Why Us', nav_contact: 'Contact',
+    hero_title: 'Your <strong>Trusted Partner</strong> for Chinese Auto Export', hero_stat1: 'Years Experience', hero_stat2: 'Countries Served', hero_stat3: 'Parts in Catalog',
+    hero_whatsapp: 'WhatsApp', hero_explore: 'Explore Products',
+    about_label: 'Who We Are', about_title: 'About Surf Auto',
+    about_p1: 'Surf Auto is a professional Chinese auto export company dedicated to connecting global buyers with China\'s finest vehicles and auto parts. With years of hands-on experience, our team has earned a reputation for reliability, precision, and integrity in every transaction.',
+    about_p2: 'We deliver complete one-stop export solutions — vehicle sourcing, competitive pricing, customs clearance, international logistics, and final delivery. Our clients across South America, Central Asia, and the Middle East trust us as their long-term partner for Chinese automotive products.',
+    stat_years: 'Years Experience', stat_countries: 'Countries Served', stat_parts: 'Parts in Catalog', stat_response: 'Response Time',
+    vehicles_label: 'Inventory', vehicles_title: 'Vehicles We Export',
+    veh0_desc: "Toyota's all-electric SUV built on the e-TNGA platform. Spacious interior, Toyota reliability, and competitive range for global markets.",
+    veh1_desc: "World's best-selling SUV. Proven reliability, hybrid efficiency, and versatile capability — the benchmark for compact SUVs worldwide.",
+    veh2_desc: "Chery's rugged mid-size SUV with bold off-road styling. Powerful turbo engine, modern tech cabin, and exceptional value for global buyers.",
+    veh3_desc: "BYD's premium off-road SUV with Dual Mode Off-Road (DMO) platform. Genuine capability meets electrified luxury for any terrain.",
+    veh4_desc: "BYD's best-selling SUV family. Available in DM-i hybrid and pure electric variants — China's most popular SUV with proven global demand.",
+    veh5_desc: "BYD Ocean Series electric SUV with blade battery. Modern design, intelligent cockpit, and advanced safety — built for urban families.",
+    veh6_desc: "Changan's rugged electric SUV with range extender option. Bold adventure-ready design with zero-emission capability and advanced smart features.",
+    veh7_desc: "Premium electric Gran Coupe by Changan, Huawei, and CATL. Stunning design, Huawei ADS intelligent driving, and flagship luxury experience.",
+    veh8_desc: "Xiaomi's first electric SUV with advanced smart tech and seamless connectivity. HyperOS-powered intelligent cockpit, impressive range, and sleek design — a game-changer from the tech giant.",
+    veh_ez60: 'Flagship electric SUV. Long-range battery, Mazda\'s signature driving dynamics, and a bold new design language for the EV era.',
+    veh_seal: 'BYD\'s flagship electric sedan. Blade battery technology, 0–100 km/h in 3.8 seconds, ocean-inspired design. World-class EV performance.',
+    veh_song: 'China\'s best-selling PHEV SUV. Exceptional combined range, spacious family interior, advanced DM-i hybrid technology.',
+    veh_leopard: 'BYD\'s premium off-road SUV. Dual Mode Off-Road (DMO) platform — genuine capability meets electrified luxury for any terrain.',
+    get_quote: 'Inquire',
+    parts_label: 'Components', parts_title: 'Auto Parts Supply', inquire: 'Inquire',
+    why_label: 'Our Edge', why_title: 'Why Choose Us',
+    adv1_title: 'Wide Vehicle Selection', adv1_desc: 'Covering major Chinese brands with stable supply chain access. From economical models to premium EVs, we source exactly what your market demands.',
+    adv2_title: 'End-to-End Export Service', adv2_desc: 'From sourcing and customs clearance to international shipping and delivery. We manage the entire process so you can focus on your business.',
+    adv3_title: 'Fast Response', adv3_desc: 'Professional team responding within 24 hours. Competitive quotes, shipping estimates, and availability updates — without the wait.',
+    adv4_title: 'Global Experience', adv4_desc: 'Serving dealers and importers across South America, Central Asia, and the Middle East. We understand international trade and local market nuances.',
+    markets_label: 'Global Reach', markets_title: 'Markets We Serve',
+    region1_name: 'South America', region1_desc: 'Colombia, Brazil, Chile, Peru, Argentina — established logistics routes and reliable local partner networks across the continent.',
+    region2_name: 'Central Asia', region2_desc: 'Kazakhstan, Uzbekistan, Kyrgyzstan — strategic overland routes via Khorgos with competitive transit times.',
+    region3_name: 'Middle East', region3_desc: 'UAE, Saudi Arabia, Qatar, Kuwait — growing demand for Chinese EVs and hybrids with premium specifications.',
+    region4_name: 'Africa', region4_desc: 'Nigeria, Ghana, South Africa, Kenya — fast-growing markets with rising demand for affordable Chinese vehicles and auto parts.',
+    contact_label: 'Get In Touch', contact_title: 'Contact Us',
+    contact_form_title: 'Send Us a Message',
+    form_name: 'Your Name', form_country: 'Country', form_msg: 'Message / Inquiry',
+    form_send: 'Send via WhatsApp',
+    contact_direct: 'Direct Contact',
+    contact_address: 'West Building 1, No. 338 Heping Middle Road, Lanling Subdistrict, Tianning District, Changzhou, Jiangsu Province, China',
+    contact_note: 'Reply within 24h · UTC+8',
+    contact_whatsapp: '+86 178 2664 0404', contact_china: 'West Building 1, No. 338 Heping Middle Road, Lanling Subdistrict, Tianning District, Changzhou, Jiangsu Province, China',
+    footer_rights: 'All Rights Reserved.'
+  },
+  zh: {
+    nav_about: '关于我们',
+    nav_vehicles: '车型',
+    nav_parts: '配件',
+    nav_why: '优势',
+    nav_contact: '联系',
+    hero_title: '中国汽车出口的<strong>信赖伙伴</strong>',
+    hero_stat1: '年行业经验',
+    hero_stat2: '服务国家',
+    hero_stat3: '配件目录',
+    hero_whatsapp: 'WhatsApp 咨询',
+    hero_explore: '查看产品',
+    about_label: '关于我们',
+    about_title: '关于 Surf Auto',
+    about_p1: '是一家专业的中国汽车出口公司，致力于连接全球买家与中国优质汽车及配件。凭借多年的行业经验，我们的团队在每一笔交易中以可靠、精准和诚信赢得了声誉。',
+    about_p2: '我们提供完整的一站式出口解决方案——车辆采购、有竞争力的报价、清关、国际物流和最终交付。遍布南美、中亚和中东的客户信任我们作为中国汽车产品的长期合作伙伴。',
+    stat_years: '年行业经验',
+    stat_countries: '服务国家',
+    stat_parts: '配件目录',
+    stat_response: '响应时间',
+    vehicles_label: '车型展示',
+    vehicles_title: '出口车型',
+    veh0_desc: '丰田纯电SUV，基于e-TNGA平台打造。宽敞空间、丰田品质、出色续航，面向全球市场。',
+    veh1_desc: '全球最畅销SUV。久经考验的可靠性、混动高效、全能表现——全球紧凑SUV标杆。',
+    veh2_desc: '奇瑞旗下硬派中型SUV，硬朗越野风格。强劲涡轮动力、现代科技座舱，面向全球市场的高性价比之选。',
+    veh3_desc: '比亚迪高端越野SUV，搭载DMO超级混动越野平台。真正的越野能力与电气化豪华的完美结合。',
+    veh4_desc: '比亚迪最畅销SUV系列。提供DM-i混动和纯电版本——中国销量冠军SUV，全球市场需求旺盛。',
+    veh5_desc: '比亚迪海洋系列纯电SUV，刀片电池加持。现代设计、智能座舱、先进安全——为都市家庭打造。',
+    veh6_desc: '长安深蓝硬派电动SUV，可选增程版。大胆探险风格设计，零排放出行与先进智能科技的融合。',
+    veh7_desc: '长安、华为、宁德时代联手打造的高端纯电轿跑。惊艳设计、华为ADS智驾系统、旗舰级豪华体验。',
+    veh8_desc: '小米首款纯电SUV，搭载尖端智能科技。澎湃OS智能座舱、出色续航、流畅设计——科技巨头的颠覆之作。',
+    get_quote: '询价',
+    parts_label: '配件供应',
+    parts_title: '汽车配件供应',
+    inquire: '询价',
+    why_label: '核心优势',
+    why_title: '为什么选择我们',
+    adv1_title: '丰富的车型选择',
+    adv1_desc: '覆盖中国主流汽车品牌，稳定的供应链渠道。从经济车型到高端新能源，精准对接您的市场需求。',
+    adv2_title: '一站式出口服务',
+    adv2_desc: '从采购、清关到国际运输和最终交付，我们管理全流程，让您专注于销售。',
+    adv3_title: '快速响应',
+    adv3_desc: '专业团队24小时内响应。有竞争力的报价、运费估算和库存更新——无需等待。',
+    adv4_title: '全球市场经验',
+    adv4_desc: '服务南美、中亚和中东的经销商与进口商。我们深谙国际贸易规则和各市场特点。',
+    markets_label: '全球覆盖',
+    markets_title: '服务市场',
+    region1_name: '南美',
+    region1_desc: '哥伦比亚、巴西、智利、秘鲁、阿根廷——成熟的物流线路和可靠的本地合作网络覆盖整个南美大陆。',
+    region2_name: '中亚',
+    region2_desc: '哈萨克斯坦、乌兹别克斯坦、吉尔吉斯斯坦——通过霍尔果斯口岸的陆路战略通道，提供有竞争力的运输时效。',
+    region3_name: '中东',
+    region3_desc: '阿联酋、沙特、卡塔尔、科威特——对中国电动车和混动车型需求增长迅速，偏好高规格配置。',
+    region4_name: '非洲', region4_desc: '尼日利亚、加纳、南非、肯尼亚——快速增长的市场，对中国高性价比汽车和配件需求旺盛。',
+    contact_label: '联系我们',
+    contact_title: '联系我们',
+    contact_form_title: '发送询价',
+    form_name: '您的姓名', form_country: '所在国家', form_msg: '咨询内容',
+    form_send: '通过 WhatsApp 发送',
+    contact_direct: '直接联系',
+    contact_address: '江苏省常州市天宁区兰陵街道和平中路338号1号楼西',
+    contact_note: '24小时内回复 · UTC+8',
+    contact_whatsapp: '+86 178 2664 0404',
+    contact_china: '江苏省常州市天宁区兰陵街道和平中路338号1号楼西',
+    footer_rights: '版权所有。',
+    mobile_menu: '菜单'
+  }
+};
+
+function switchLang(locale) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[locale] && i18n[locale][key]) el.innerHTML = i18n[locale][key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (i18n[locale] && i18n[locale][key]) el.placeholder = i18n[locale][key];
+  });
+  document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en';
+  document.getElementById('langEN').classList.toggle('active', locale === 'en');
+  const zhBtn = document.getElementById('langZH') ;
+  if (zhBtn) zhBtn.classList.toggle('active', locale !== 'en');
+  localStorage.setItem('surfLang', locale);
+  if (locale === 'zh') window.location.hash = 'zh'; else window.history.replaceState(null, '', window.location.pathname);
+}
+
+/* Scroll Reveal */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-children').forEach(el => observer.observe(el));
+
+/* Fallback: if anything still hidden after 2s, force show */
+setTimeout(() => {
+  document.querySelectorAll('.reveal, .reveal-children').forEach(el => el.classList.add('visible'));
+}, 2000);
+
+/* Navbar */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 80));
+
+/* Mobile Nav */
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  const open = document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('mobileToggle').innerHTML = open ? '&times;' : '&#9776;';
+});
+document.querySelectorAll('#navLinks a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('mobileToggle').innerHTML = '&#9776;';
+  });
+});
+
+/* Active nav link */
+window.addEventListener('scroll', () => {
+  let current = '';
+  document.querySelectorAll('section[id]').forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  document.querySelectorAll('#navLinks a[href^="#"]').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+/* Init language */
+const saved = localStorage.getItem('surfLang') || (window.location.hash === '#zh' ? 'zh' : 'en');
+if (saved !== 'en') switchLang(saved);
+
+
+/* Horizontal Scroll for Vehicles */
+var vehiclesSection = document.getElementById('vehicles');
+var vehiclesTrack = document.getElementById('vehiclesGrid');
+if (vehiclesSection && vehiclesTrack) {
+  window.addEventListener('scroll', function() {
+    var rect = vehiclesSection.getBoundingClientRect();
+    var sectionHeight = vehiclesSection.offsetHeight - window.innerHeight;
+    var scrolled = -rect.top;
+    if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+      var progress = Math.max(0, Math.min(1, scrolled / sectionHeight));
+      var trackWidth = vehiclesTrack.scrollWidth - window.innerWidth + 64;
+      vehiclesTrack.style.transform = 'translateX(-' + (progress * trackWidth) + 'px)';
+    }
+  });
+}
+
+/* CountUp Animation for Data Panel */
+var countUpObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var el = entry.target;
+      var target = parseInt(el.getAttribute('data-target'));
+      var current = 0;
+      var increment = target / 50;
+      var timer = setInterval(function() {
+        current += increment;
+        if (current >= target) {
+          el.innerText = target.toLocaleString();
+          clearInterval(timer);
+        } else {
+          el.innerText = Math.ceil(current).toLocaleString();
+        }
+      }, 30);
+      countUpObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.val[data-target]').forEach(function(el) { countUpObserver.observe(el); });
+
+
+/* Custom Cursor with Damping */
+var cursor = document.createElement('div');
+cursor.className = 'custom-cursor';
+document.body.appendChild(cursor);
+var mouseX = 0, mouseY = 0;
+var cursorX = 0, cursorY = 0;
+document.addEventListener('mousemove', function(e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+function animateCursor() {
+  var speed = 0.15;
+  cursorX += (mouseX - cursorX) * speed;
+  cursorY += (mouseY - cursorY) * speed;
+  cursor.style.left = cursorX + 'px';
+  cursor.style.top = cursorY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+var hoverTargets = document.querySelectorAll('.link-arrow, .btn, .vehicle-card, .part-card, .advantage-card, a, button');
+hoverTargets.forEach(function(el) {
+  el.style.cursor = 'none';
+  el.addEventListener('mouseenter', function() { cursor.classList.add('hover'); });
+  el.addEventListener('mouseleave', function() { cursor.classList.remove('hover'); });
+});
+
+function sendWhatsApp() {
+  const name = document.getElementById('cfName').value.trim();
+  const country = document.getElementById('cfCountry').value.trim();
+  const msg = document.getElementById('cfMsg').value.trim();
+  let text = 'Hi, ';
+  if (name) {
+    text += 'I am ' + name;
+    if (country) text += ' from ' + country;
+    text += '. ';
+  }
+  text += msg || 'I would like to inquire about your auto export service.';
+  window.open('https://wa.me/8617826640404?text=' + encodeURIComponent(text), '_blank');
+}
+
+</script>
+
+</body>
+</html>
