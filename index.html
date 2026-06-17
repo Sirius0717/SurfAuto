@@ -49,7 +49,6 @@ body {
   color: var(--text-main);
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  cursor: none;
 }
 
 @keyframes meshMove1 { to { transform: translate(10%, 10%) rotate(15deg); } }
@@ -1566,30 +1565,6 @@ var countUpObserver = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.val[data-target]').forEach(function(el) { countUpObserver.observe(el); });
 
 
-/* Custom Cursor with Damping */
-var cursor = document.createElement('div');
-cursor.className = 'custom-cursor';
-document.body.appendChild(cursor);
-var mouseX = 0, mouseY = 0;
-var cursorX = 0, cursorY = 0;
-document.addEventListener('mousemove', function(e) {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-function animateCursor() {
-  var speed = 0.15;
-  cursorX += (mouseX - cursorX) * speed;
-  cursorY += (mouseY - cursorY) * speed;
-  cursor.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px) translate(-50%, -50%)';
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-var hoverTargets = document.querySelectorAll('.link-arrow, .btn, .vehicle-card, .part-card, .advantage-card, a, button');
-hoverTargets.forEach(function(el) {
-  el.style.cursor = 'none';
-  el.addEventListener('mouseenter', function() { cursor.classList.add('hover'); });
-  el.addEventListener('mouseleave', function() { cursor.classList.remove('hover'); });
-});
 
 function sendWhatsApp() {
   const name = document.getElementById('cfName').value.trim();
